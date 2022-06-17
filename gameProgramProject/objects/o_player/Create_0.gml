@@ -1,1 +1,5 @@
-movespeed = 200;
+//keybinds
+
+//stats
+
+movespeed = 5;

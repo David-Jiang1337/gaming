@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_player",
-    "path": "sprites/s_player/s_player.yy",
+    "name": "s_enemy",
+    "path": "sprites/s_enemy/s_enemy.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,8 +22,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_enemy","path":"objects/o_enemy/o_enemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -32,7 +30,7 @@
     "path": "folders/Objects/overworld_objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_player",
+  "name": "o_enemy",
   "tags": [],
   "resourceType": "GMObject",
 }
