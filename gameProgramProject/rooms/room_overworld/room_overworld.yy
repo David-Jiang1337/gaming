@@ -46,7 +46,7 @@
     "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "room_overworld",
   "tags": [],
   "resourceType": "GMRoom",
 }
