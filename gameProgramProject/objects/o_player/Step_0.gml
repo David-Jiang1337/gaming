@@ -14,3 +14,4 @@ var hMove = keyboard_check(downkey)-keyboard_check(upkey);
 //move
 x+=movespeed*vMove;
 y+=movespeed*hMove;
+
