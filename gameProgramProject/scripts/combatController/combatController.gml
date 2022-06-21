@@ -2,23 +2,22 @@ enum combatPhases {
 	
 }
 
-global.unitarr = [];
+global.unitArr = ds_list_create();
 
 // sort used for ordering 
 function sort(arr, first, last){
-	if(last<first){
+	if(first<last){
 		var pIndex = part(arr, first, last); //partition index
-	
 		sort(arr, first, pIndex-1);
 		sort(arr, pIndex+1, last);
-	}
+	} 
 }
 
 function part(arr, first, last){
 	var piv = arr[| last];
 	var index = first-1;
 	
-	for(var v=0; v<last; v++){
+	for(var v=0; v<=last; v++){
 		if(arr[| v]<piv){
 			index++;
 			
@@ -31,8 +30,8 @@ function part(arr, first, last){
 			
 		}
 	}
-	var tempI = arr[index+1];
-	var tempLast = arr[last];
+	var tempI = arr[| (index+1)];
+	var tempLast = arr[| last];
 	
 	ds_list_set(arr, index+1, tempLast);
 	ds_list_set(arr, last, tempI);

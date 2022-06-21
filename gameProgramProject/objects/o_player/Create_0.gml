@@ -11,6 +11,5 @@ sort(nums,0,ds_list_size(nums)-1);
 
 var kek = "";
 for(var i=0; i<ds_list_size(nums)-1; i++){
-	kek+=string(ds_list_find_value(nums, i));
+	show_debug_message(ds_list_find_value(nums, i));
 }
-show_debug_message(kek)

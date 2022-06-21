@@ -4,6 +4,7 @@
     {"id":{"name":"combatController","path":"scripts/combatController/combatController.yy",},"order":2,},
     {"id":{"name":"s_player","path":"sprites/s_player/s_player.yy",},"order":0,},
     {"id":{"name":"room_combat","path":"rooms/room_combat/room_combat.yy",},"order":1,},
+    {"id":{"name":"ui_selectarrow","path":"objects/ui_selectarrow/ui_selectarrow.yy",},"order":1,},
     {"id":{"name":"o_enemy","path":"objects/o_enemy/o_enemy.yy",},"order":1,},
     {"id":{"name":"o_unit","path":"objects/o_unit/o_unit.yy",},"order":0,},
     {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},

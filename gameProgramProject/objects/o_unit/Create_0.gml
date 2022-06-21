@@ -4,7 +4,10 @@ unit = undefined;
 
 unitSkills = [skills.attack, skills.defend];
 
-selected = false;
+selectable = false;
+
+pointerArrow = instance_create_layer(x,y-24,"interface",ui_selectarrow);
+pointerArrow.sprite_index = undefined;
 
 function takeDamage(damage){
 	hp = clamp(hp-clamp(damage,0,2147483647),0,maxHp);
