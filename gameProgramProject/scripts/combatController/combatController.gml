@@ -1,40 +1,35 @@
-enum combatPhases {
+global.teamPos = [ //positions of friendly units
+[256,288],
+[256,448],
+[256,128],
+[256,608]
+];
+
+global.enemyPos = [
+[960,256],
+[960,512],
+[1120,128],
+[1120,384],
+[1120,640]
+];
+
+enum attackPhases {
 	
 }
 
 global.unitArr = ds_list_create();
 
-// sort used for ordering 
-function sort(arr, first, last){
-	if(first<last){
-		var pIndex = part(arr, first, last); //partition index
-		sort(arr, first, pIndex-1);
-		sort(arr, pIndex+1, last);
-	} 
+function clearArr(){
+	ds_list_clear(global.unitArr);
 }
 
-function part(arr, first, last){
-	var piv = arr[| last];
-	var index = first-1;
-	
-	for(var v=0; v<=last; v++){
-		if(arr[| v]<piv){
-			index++;
-			
-			//swap array[index] and array[v] if array[v] is smaller than pivot
-			var tempI = arr[| index];
-			var tempV = arr[| v];
-			
-			ds_list_set(arr, index, tempV);
-			ds_list_set(arr, v, tempI);
-			
-		}
+function initCombat(teamArr, enemyArr){
+	for(var i=0; i<array_length(teamArr); i++){
+		var newUnit = instance_create_layer(global.teamPos[i,0],global.teamPos[i,1],"units",teamArr[i]);
+		ds_list_add(global.unitArr, newUnit);
 	}
-	var tempI = arr[| (index+1)];
-	var tempLast = arr[| last];
-	
-	ds_list_set(arr, index+1, tempLast);
-	ds_list_set(arr, last, tempI);
-	
-	return index+1;
+	for(var i=0; i<array_length(enemyArr); i++){
+		var newUnit = instance_create_layer(global.enemyPos[i,0],global.enemyPos[i,1],"units",enemyArr[i]);
+		ds_list_add(global.unitArr, newUnit);
+	}
 }

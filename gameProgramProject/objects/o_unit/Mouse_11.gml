@@ -1,1 +1,1 @@
-pointerArrow.sprite_index = undefined;
+pointerArrow.sprite_index = s_empty;

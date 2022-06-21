@@ -1,12 +1,13 @@
 {
   "resources": [
-    {"id":{"name":"functions","path":"scripts/functions/functions.yy",},"order":0,},
     {"id":{"name":"combatController","path":"scripts/combatController/combatController.yy",},"order":2,},
     {"id":{"name":"s_player","path":"sprites/s_player/s_player.yy",},"order":0,},
     {"id":{"name":"room_combat","path":"rooms/room_combat/room_combat.yy",},"order":1,},
+    {"id":{"name":"o_controller","path":"objects/o_controller/o_controller.yy",},"order":3,},
     {"id":{"name":"ui_selectarrow","path":"objects/ui_selectarrow/ui_selectarrow.yy",},"order":1,},
     {"id":{"name":"o_enemy","path":"objects/o_enemy/o_enemy.yy",},"order":1,},
     {"id":{"name":"o_unit","path":"objects/o_unit/o_unit.yy",},"order":0,},
+    {"id":{"name":"s_empty","path":"sprites/s_empty/s_empty.yy",},"order":4,},
     {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},
     {"id":{"name":"o_enemyUnit","path":"objects/o_enemyUnit/o_enemyUnit.yy",},"order":2,},
     {"id":{"name":"s_button","path":"sprites/s_button/s_button.yy",},"order":3,},
