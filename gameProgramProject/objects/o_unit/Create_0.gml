@@ -2,9 +2,9 @@ maxHp = 20;
 hp = 20;
 unit = undefined;
 
-unitSkills = [skills.attack, skills.defend];
+unitSkills = [skills.attack, skills.defend, skills.attack, skills.defend];
 
-selectable = true;
+selectable = false;
 
 pointerArrow = instance_create_layer(x,y-48,"interface",ui_selectarrow);
 pointerArrow.sprite_index = s_empty;
@@ -17,5 +17,5 @@ function takeDamage(damage){
 }
 
 function processDeath(){
-	
+	ds_list_delete(global.unitArr, ds_list_find_index(global.unitArr, id));
 }

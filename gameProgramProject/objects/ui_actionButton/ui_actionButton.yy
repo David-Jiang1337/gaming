@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "s_enemy",
-    "path": "sprites/s_enemy/s_enemy.yy",
+    "name": "s_button",
+    "path": "sprites/s_button/s_button.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "o_unit",
-    "path": "objects/o_unit/o_unit.yy",
+    "name": "ui_button",
+    "path": "objects/ui_button/ui_button.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -26,14 +26,17 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":2,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"text","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"func","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
-    "name": "combat_objects",
-    "path": "folders/Objects/combat_objects.yy",
+    "name": "interface_elements",
+    "path": "folders/Objects/interface_elements.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_enemyUnit",
+  "name": "ui_actionButton",
   "tags": [],
   "resourceType": "GMObject",
 }
