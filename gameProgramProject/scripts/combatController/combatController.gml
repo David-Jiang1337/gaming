@@ -1,6 +1,6 @@
 enum skills {
 	attack,
-	defend
+	heal
 }
 
 enum units {
@@ -25,7 +25,7 @@ global.enemyPos = [
 ];
 
 global.unitArr = ds_list_create();
-
+global.currentController = undefined;
 global.unitTurn = 0; //index of unit whose turn it is
 global.currentAction = undefined;
 global.targets = ds_list_create();
@@ -41,22 +41,29 @@ function standby(){
 	//create buttons for each ability
 	var currentUnit = ds_list_find_value(global.unitArr, global.unitTurn);
 	var unitSkills = currentUnit.unitSkills;
-	for(var i=0; i<array_length(unitSkills); i++){
-		var button = instance_create_layer(64+(floor(i/2)*224), 608+((i%2)*100), "interface", ui_actionButton);
-		switch(unitSkills[i]){
-			case skills.attack:
-				button.text = "Attack";
-				button.action = skills.attack;
-				break;
-			case skills.defend:
-				button.text = "Defend";
-				button.action = skills.defend;
-				break;
+	if(currentUnit.unit = units.team){ //friendly unit interface
+		for(var i=0; i<array_length(unitSkills); i++){
+			var button = instance_create_layer(64+(i*224), 708, "interface", ui_actionButton);
+			button.image_xscale = 6;
+			button.image_yscale = 2;
+			switch(unitSkills[i]){
+				case skills.attack:
+					button.text = "Attack";
+					button.action = skills.attack;
+					break;
+				case skills.heal:
+					button.text = "Heal";
+					button.action = skills.heal;
+					break;
+			}
 		}
+	}else if(currentUnit.unit = units.enemy){
+		beginAction(skills.attack);	//enemies can only attack for simplicity sake
 	}
 }
 
-function beginAction(action){ //action should be an enum from 'skills
+function beginAction(action){ //action should be an enum from 'skills'
+	var currentUnit = ds_list_find_value(global.unitArr, global.unitTurn);
 	//deletes action buttons
 	with ui_actionButton {
 		instance_destroy();	
@@ -69,13 +76,33 @@ function beginAction(action){ //action should be an enum from 'skills
 			global.maxTargets = 1;
 			makeSelectable(units.enemy);
 			break;
-		case skills.defend:
+		case skills.heal:
 			global.maxTargets = 1;
 			makeSelectable(units.team);
 			break;
 		
 	}
 	
+	//enemy action select and resolve
+	
+	if(currentUnit.unit == units.enemy){
+		//create temporary unit arr
+		var tempUnitArr = ds_list_create();
+		ds_list_copy(tempUnitArr, global.unitArr);
+		//select targets
+		with o_unit {
+			if(!selectable){
+				ds_list_delete(tempUnitArr, ds_list_find_index(tempUnitArr, id));	
+			}
+		}
+		ds_list_shuffle(tempUnitArr);
+		for(var i=0; i<global.maxTargets; i++){
+			ds_list_add(global.targets, ds_list_find_value(tempUnitArr, i));
+			
+		}
+		resolveAction();
+		
+	}
 	
 }
 
@@ -101,8 +128,8 @@ function resolveAction(){
 				case skills.attack:
 					takeDamage(10);
 					break;
-				case skills.defend:
-					
+				case skills.heal:
+					heal(5);
 					break;
 			}
 		}
@@ -125,13 +152,13 @@ function resolveAction(){
 		if(currentUnit.unit == units.team){teamCount++;}
 		if(currentUnit.unit == units.enemy){enemyCount++;}
 	}
-	if(teamCount == 0){
+	if(teamCount <= 0){
 		//enemy win event
 		
 		//exiting combat
 		exitCombat();
 		return 0;
-	}else if(enemyCount == 0){
+	}else if(enemyCount <= 0){
 		//team win event
 		
 		//exiting combat
@@ -155,23 +182,31 @@ function initCombat(teamArr, enemyArr){
 }
 
 function exitCombat(){
-	global.unitTurn = undefined;
+	global.unitTurn = 0;
 	clearArr();
 	room_goto(room_overworld);
 }
 
+
 function makeSelectable(unitType){
-	for(var i=0; i<ds_list_size(global.unitArr); i++){
-		var currentUnit = ds_list_find_value(global.unitArr, i);
-		if(currentUnit.unit == units.both || currentUnit.unit == unitType || unitType == units.both){
-			currentUnit.selectable = true;
+	var currentUnit = ds_list_find_value(global.unitArr, global.unitTurn);
+	if(currentUnit.unit == units.team){
+		with o_unit{
+			if((unit == unitType || unitType == units.both || unit == units.both)&&ds_list_find_index(global.unitArr, id)!=-1){
+				selectable = true;	
+			}
+		}
+	} else {
+		with o_unit{
+			if((unit != unitType || unitType == units.both || unit == units.both)&&ds_list_find_index(global.unitArr, id)!=-1){
+				selectable = true;	
+			}
 		}
 	}
 }
 
 function clearSelectable(){
-	for(var i=0; i<ds_list_size(global.unitArr); i++){
-		var currentUnit = ds_list_find_value(global.unitArr, i);
-		currentUnit.selectable = false;
+	with o_unit{
+		selectable = false;	
 	}
 }

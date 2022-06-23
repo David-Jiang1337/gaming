@@ -49,9 +49,9 @@
     {"folderPath":"folders/Animation Curves.yy","order":12,"resourceVersion":"1.0","name":"Animation Curves","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notes.yy","order":13,"resourceVersion":"1.0","name":"Notes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Extensions.yy","order":14,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Objects/overworld_objects.yy","order":1,"resourceVersion":"1.0","name":"overworld_objects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/overworld_objects.yy","order":0,"resourceVersion":"1.0","name":"overworld_objects","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/combat_objects.yy","order":2,"resourceVersion":"1.0","name":"combat_objects","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Objects/interface_elements.yy","order":3,"resourceVersion":"1.0","name":"interface_elements","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/interface_elements.yy","order":1,"resourceVersion":"1.0","name":"interface_elements","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
